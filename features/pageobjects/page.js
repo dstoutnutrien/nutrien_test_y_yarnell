@@ -62,8 +62,25 @@ export default class Page {
   }
 
   async click(name) {
+    let anchor =null;
      //await browser.scroll(0, 200)
-    const anchor = await $(`a[href="/${this.paths[name]}"]`);
+     
+    // browser.url(`https://the-internet.herokuapp.com`);
+     if(name=='WYSIWYG Editor'){
+      await browser.scroll(0, 200);
+      
+     }
+     if(name=='Sortable Data Tables'){
+      await browser.scroll(0, 300);
+      //anchor = $("//*[@id='content']/ul/li[41]/a");
+     } 
+     //browser.url(this.base);
+     if(name=='Status Codes'){
+      await browser.scroll(0, 300);
+      //anchor = $("//*[@id='content']/ul/li[41]/a");
+     } 
+    anchor = await $(`a[href="/${this.paths[name]}"]`);
+     
     //await browser.scroll(0, 200)
     await anchor.click();
   }

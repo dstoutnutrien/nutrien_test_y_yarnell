@@ -9,6 +9,10 @@ Feature: The Internet Guinea Pig Website
     Examples:
       | num |
       |   0 |
+      |   1 |
+      |   2 |
+      |   3 |
+      |   4 |
       
    
     
