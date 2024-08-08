@@ -26,4 +26,7 @@ Run tests with `npm run wdio` or `npm run wdio-headless`
 Run specific tests with `npm run wdio -- --cucumberOpts.tagExpression="@TAG"`
   "setup:testrunner": "wdio run ./wdio.conf.js --spec ./setup/testrunner.js",  npm run --spec index.js
 
+ npm run wdio  // will run the tests. 
+ allure serve  //will generate an allure report. 
+
 #### You are our only hope.

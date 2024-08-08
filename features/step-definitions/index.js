@@ -1,5 +1,6 @@
 import { Given, When, Then } from "@wdio/cucumber-framework";
 import Page from "../pageobjects/page.js";
+import reporter from 'wdio-allure-reporter'
 const index = new Page();
 
 Given(/^I am on the (.+) page$/, async (page) => {
@@ -9,6 +10,11 @@ Given(/^I am on the (.+) page$/, async (page) => {
 Given("I am at the index page", async function () {
   await index.open();
 });
+
+Given('I include feature and story name', () => {
+  allureReporter.addFeature('Feature_name');
+  allureReporter.addStory('Story_name');
+})
 
 When(/^I click the (.+) link$/, async function (page) {
   this.page = page;

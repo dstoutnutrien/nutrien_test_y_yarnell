@@ -12,11 +12,16 @@
     "@wdio/spec-reporter": "^8.39.0",
     "safaridriver": "^0.1.2",
     "ts-node": "^10.9.2",
+    "wdio-allure-reporter": "^0.8.3",
     "wdio-wait-for": "^3.0.11"
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
-    "wdio-headless": "wdio run ./wdio.conf.js --headless"
+    
+    "test": "wdio",
+    "allure-reports": "node_modules/.bin/allure generate ./reports/allure/allure-results/  -o ./reports/allure/allure-report/ --clean && allure open ./reports/allure/allure-report",
+    "wdio-headless": "wdio run ./wdio.conf.js --headless",
+       "report": "allure generate --clean && allure open"
   },
   "dependencies": {
     "@cucumber/cucumber": "^10.8.0",
