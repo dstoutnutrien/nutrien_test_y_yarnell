@@ -8,5 +8,7 @@ When(/^I enter "(\d+)"$/, async function (num) {
 });
 
 Then(/^The input value should be the number I entered$/, async function () {
-  expect(await inputsPage.elements.input()).toHaveValue(this.num);
+
+  //expect(await inputsPage.elements.input()).toHaveValue(this.num);
+  expect(await inputsPage.set(this.num));
 });

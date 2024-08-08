@@ -11,6 +11,7 @@ export default class Page {
       Checkboxes: "checkboxes",
       Dropdown: "dropdown",
       inputs: "inputs",
+      
 
       "A/B Testing": "abtest",
       "Add/Remove Elements": "add_remove_elements/",
@@ -35,6 +36,7 @@ export default class Page {
       "Horizontal Slider": "horizontal_slider",
       Hovers: "hovers",
       "Infinite Scroll": "infinite_scroll",
+      "Inputs": "inputs",
       "JQuery UI Menus": "jqueryui/menu",
       "JavaScript Alerts": "javascript_alerts",
       "JavaScript onload event error": "javascript_error",
@@ -60,7 +62,9 @@ export default class Page {
   }
 
   async click(name) {
+     //await browser.scroll(0, 200)
     const anchor = await $(`a[href="/${this.paths[name]}"]`);
+    //await browser.scroll(0, 200)
     await anchor.click();
   }
 

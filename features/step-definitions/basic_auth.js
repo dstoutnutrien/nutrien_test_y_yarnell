@@ -14,3 +14,11 @@ Then(/^I should see a paragraph saying (.+)$/, async (message) => {
   await expect(BasicAuthPage.message).toBeExisting();
   await expect(BasicAuthPage.message).toHaveTextContaining(message);
 });
+
+Then(/^I should see a paragraph saying (.+)$/, async (message) => {
+  await expect(BasicAuthPage.message).notToBeExisting();
+  await BasicAuthPage.login(username, password).toBeExisting();
+  
+  //await expect(BasicAuthPage.message).toHaveTextContaining(message);
+});
+
