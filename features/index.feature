@@ -34,7 +34,7 @@ Feature: The Internet Guinea Pig Website
       | Horizontal Slider             |
       | Hovers                        |
       | Infinite Scroll               |
-      | Inputs                        |
+      | Inputs                        |                      
       | JQuery UI Menus               |
       | JavaScript Alerts             |
       | JavaScript onload event error |

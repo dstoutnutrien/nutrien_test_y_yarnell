@@ -1,3 +1,4 @@
+const allure = import('allure-commandline')
 export const config = {
   //
   // ====================
@@ -116,6 +117,7 @@ export const config = {
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
   framework: "cucumber",
+  
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
@@ -130,7 +132,12 @@ export const config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  //reporters: ["spec"],
+  reporters: [['allure', {
+    outputDir: 'allure-results',
+    disableWebdriverStepsReporting: true,
+    disableWebdriverScreenshotsReporting: true,
+}]],
 
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
@@ -315,6 +322,14 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
+  
+
+
+afterStep: async function (step, scenario, { error, duration, passed }, context) {
+  if (error) {
+    await browser.takeScreenshot();
+  }
+}
   // onComplete: function(exitCode, config, capabilities, results) {
   // },
   /**

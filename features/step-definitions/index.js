@@ -1,5 +1,6 @@
 import { Given, When, Then } from "@wdio/cucumber-framework";
 import Page from "../pageobjects/page.js";
+import reporter from 'wdio-allure-reporter'
 const index = new Page();
 
 Given(/^I am on the (.+) page$/, async (page) => {
@@ -10,15 +11,28 @@ Given("I am at the index page", async function () {
   await index.open();
 });
 
+Given('I include feature and story name', () => {
+  allureReporter.addFeature('Feature_name');
+  allureReporter.addStory('Story_name');
+})
+
 When(/^I click the (.+) link$/, async function (page) {
   this.page = page;
   await index.click(page);
+  
 });
 
 Then("I should be driected to the selected page", async function () {
   const html = await $("*").getHTML();
   console.log(html);
-  expect(html).toMatch(new RegExp(`/h3.+${this.page}.+h3/`, "gm"));
-  // const header = await $("h3");
-  // expect(header).toHaveTextContaining(this.page);
+  //const link = await $('=inputs')
+ 
+  //await index.click(link);
+  //await index.click(link.waitForVisible(3000));
+  const header = await $("h3");
+
+ // expect(html).toMatch(new RegExp(`/h3.+${this.page}.+h3/`, "gm"));
+
+  //const header = await $("h3");
+  expect(header).toHaveText(this.page);
 });

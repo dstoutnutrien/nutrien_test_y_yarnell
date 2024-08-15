@@ -7,5 +7,5 @@ Feature: The Internet Guinea Pig Website
     Then The checkbox should be checked
       Examples:
       | num |
-      |   1 |
-      |   2 |
+      | 1   |
+      | 2   |

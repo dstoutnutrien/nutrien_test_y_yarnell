@@ -11,6 +11,7 @@ export default class Page {
       Checkboxes: "checkboxes",
       Dropdown: "dropdown",
       inputs: "inputs",
+      
 
       "A/B Testing": "abtest",
       "Add/Remove Elements": "add_remove_elements/",
@@ -35,6 +36,7 @@ export default class Page {
       "Horizontal Slider": "horizontal_slider",
       Hovers: "hovers",
       "Infinite Scroll": "infinite_scroll",
+      "Inputs": "inputs",
       "JQuery UI Menus": "jqueryui/menu",
       "JavaScript Alerts": "javascript_alerts",
       "JavaScript onload event error": "javascript_error",
@@ -60,7 +62,26 @@ export default class Page {
   }
 
   async click(name) {
-    const anchor = await $(`a[href="/${this.paths[name]}"]`);
+    let anchor =null;
+     //await browser.scroll(0, 200)
+     
+    // browser.url(`https://the-internet.herokuapp.com`);
+     if(name=='WYSIWYG Editor'){
+      await browser.scroll(0, 200);
+      
+     }
+     if(name=='Sortable Data Tables'){
+      await browser.scroll(0, 300);
+      //anchor = $("//*[@id='content']/ul/li[41]/a");
+     } 
+     //browser.url(this.base);
+     if(name=='Status Codes'){
+      await browser.scroll(0, 300);
+      //anchor = $("//*[@id='content']/ul/li[41]/a");
+     } 
+    anchor = await $(`a[href="/${this.paths[name]}"]`);
+     
+    //await browser.scroll(0, 200)
     await anchor.click();
   }
 
